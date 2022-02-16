@@ -2,9 +2,6 @@ from distutils.log import debug
 from flask import Flask, render_template,request
 
 app = Flask(__name__)
-import sqkite3
-import sqlite3
-jefuie
 
 @app.route("/")
 def home():
