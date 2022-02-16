@@ -1,10 +1,11 @@
 from distutils.log import debug
 from flask import Flask, render_template,request
+import sqlite3
 
 app = Flask(__name__)
 
 
-@app.route("/home")
+@app.route("/")
 def home():
     return render_template("home1.html")
 
@@ -96,8 +97,6 @@ def admin():
 
 @app.route("/admin portal")
 def adminportal():
-    email=request.form["email"]
-    password=request.form["password"]
     return render_template("admin portal.html")
 
 
