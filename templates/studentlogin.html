@@ -97,20 +97,19 @@ background: linear-gradient(to right, #ffd194, #70e1f5); /* W3C, IE 10+/ Edge, F
 <body>
 	<h2>Student Login</h2>
 
-	<form action="/action_page.php">
+	<form class="form" method="post" action="/student page">>
 
 		<div class="imgcontainer">
 			<img src={{url_for('static', filename = 'images/student.jpg' )}} >
 		</div>
 
 		<div class="container">
-			<label><b>Reg / Roll no:</b></label>
-			<input type="text" style="color: black;" placeholder="Enter the Reg / Roll no" name="uname" required>
+			<label><b>Email id</b></label>
+			<input type="text" style="color: black;" placeholder="Enter the email ID" name="uname" required>
 
 			<label><b>Password:</b></label>
 			<input type="password" placeholder="Enter the Password" name="psw" required>
-
-			<a class="btn1" href="/studreg" type="button">Login</a>
+			<input class=btn type="submit" value="Login">
 		</div>
 
 

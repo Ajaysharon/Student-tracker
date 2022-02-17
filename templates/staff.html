@@ -98,7 +98,7 @@ background: linear-gradient(to right, #ACB6E5, #74ebd5); /* W3C, IE 10+/ Edge, F
 <body>
 	<h2>Staff Login</h2>
 
-	<form action="/action_page.php">
+	<form class="form" method="post" action="/staff">
 
 		<div class="imgcontainer">
 			<img src={{url_for('static', filename = 'images/staff.jpg' )}} >
@@ -110,8 +110,7 @@ background: linear-gradient(to right, #ACB6E5, #74ebd5); /* W3C, IE 10+/ Edge, F
 
 			<label><b>Password:</b></label>
 			<input type="password" placeholder="Enter the Password" name="psw" required>
-
-			<a class="btn1" href="/profpage" type="button">Login</a>
+			<input class=btn1 type="submit" value="Login">
 		</div>
 
 

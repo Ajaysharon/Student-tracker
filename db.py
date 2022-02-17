@@ -3,7 +3,7 @@ import sqlite3
 db=sqlite3.connect("login.db")
 cursor= db.cursor()
 
-'''
+
 def execute_query(sql_query):
     with sqlite3.connect('login.db') as db:
         csr=db.cursor()
@@ -14,7 +14,7 @@ def execute_query(sql_query):
 sql_query="""SELECT * FROM teacher_login"""
 RESULT=execute_query(sql_query)
 print(RESULT.fetchall())
-'''
+
 
 '''
 #table admin(username text,password text),student_login(username text primary key ,password text)

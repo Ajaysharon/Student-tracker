@@ -8,8 +8,24 @@ def home():
     return render_template("home1.html")
 
 
-@app.route("/student page")
+@app.route("/student page", methods=["POST", "GET"])
 def student():
+    if request.method == "GET":
+        print("a")
+        return render_template("studentlogin.html")
+    else:
+        db=sqlite3.connect('login.db')
+        cursor=db.cursor()
+        name = request.form['uname']
+        password= request.form['psw']
+        query="select * from student_login where username='"+name+"' and password = '"+password+"'"
+        cursor.execute(query)
+        result = cursor.fetchall()
+
+        if len(result)==0:
+            print("sorry,Incorrect details")
+        else:
+            return render_template("Reg.html")
     return render_template("studentlogin.html")
 
 
@@ -78,8 +94,24 @@ def contact_us():
     return render_template("cont.html")
 
 
-@app.route("/staff")
+@app.route("/staff",methods=['GET','POST'])
 def staff():
+    if request.method == "GET":
+        print("a")
+        return render_template("staff.html")
+    else:
+        db=sqlite3.connect('login.db')
+        cursor=db.cursor()
+        name = request.form['uname']
+        password= request.form['psw']
+        query="select * from teacher_login where username='"+name+"' and password = '"+password+"'"
+        cursor.execute(query)
+        result = cursor.fetchall()
+
+        if len(result)==0:
+            print("sorry,Incorrect details")
+        else:
+            return render_template("profile page.html")
     return render_template("staff.html")
 
 
@@ -87,27 +119,67 @@ def staff():
 def staff_profilepage():
     return render_template("profile page.html")
 
-#########################################################
-@app.route("/admin page",methods=['GET','POST'])
+@app.route("/admin page")
 def admin():
-    name=request.form['uname']
-    print(name)
     return render_template('adminlogin.html')
 
 
-@app.route("/admin portal")
+@app.route("/admin portal", methods=["POST", "GET"])
 def adminportal():
-    return render_template("admin portal.html")
+    if request.method == "GET":
+        print("a")
+        return render_template("admin portal.html")
+    else:
+        db=sqlite3.connect('login.db')
+        cursor=db.cursor()
+        name = request.form['uname']
+        password= request.form['psw']
+        query="select * from admin where username='"+name+"' and password = '"+password+"'"
+        cursor.execute(query)
+        result = cursor.fetchall()
+
+        if len(result)==0:
+            print("sorry,Incorrect details")
+        else:
+            return render_template("admin portal.html")
+    return render_template("adminlogin.html")
 
 
-@app.route('/student register')
+@app.route('/student register',methods=["POST", "GET"])
 def student_register():
+    if request.method == "GET":
+        print("a")
+        return render_template("student register.html")
+    else:
+        db=sqlite3.connect('login.db')
+        cursor=db.cursor()
+        name = request.form['email']
+        password= request.form['psw']
+        query="insert into student_login values('"+name+"','"+password+"')"
+        cursor.execute(query)
+        db.commit()
+        print("REGISTERED")
     return render_template("student register.html")
 
 
-@app.route("/teacher register")
+@app.route("/teacher register",methods=['GET','POST'])
 def teacher_register():
-    return render_template('teacher register.html')
+    if request.method == "GET":
+        print("a")
+        return render_template("teacher register.html")
+    else:
+        db=sqlite3.connect('login.db')
+        cursor=db.cursor()
+        name = request.form['email']
+        password= request.form['psw']
+        query="insert into teacher_login values('"+name+"','"+password+"')"
+        cursor.execute(query)
+        db.commit()
+        print("REGISTERED")
+        return render_template("admin portal.html")
+
+    return render_template("teacher register.html")
+
 
 
 if __name__ == '__main__':
