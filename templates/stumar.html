@@ -7,7 +7,10 @@
 <body>
 <style>
 body {
-         background-image: url('9.jpg');
+        background: #B2FEFA;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #0ED2F7, #B2FEFA);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #0ED2F7, #B2FEFA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
          background-repeat: no-repeat;
          background-attachment: fixed;
          background-size: cover;
@@ -17,24 +20,29 @@ body {
     .more{
         width: 100%;
         text-align: center;
-        margin: 0;
+        margin: 2%;
         padding: 0;
      }
 
      .more a{
-         background: purple;
+         background: white;
          display: block;
-         width: 250px;
-         height: 25px;
+         width: 145px;
+         height: 20px;
          margin: 0 auto;
-         color: #fff;
+         color: black;
          text-decoration: none;
-
+         border-radius: 14px;
+         text-align:center;
       }
 
 </style>
 
-<table align="center" BORDERCOLOR = "GREEN" BORDER = "3" >
+<h1>
+	Student Mark / Grade
+</h1>
+
+<table align="center" BORDERCOLOR = "gray" BORDER = "3" >
 	<tr>
 	<th> Subject Type</th>
         <th> Subject Code</th>

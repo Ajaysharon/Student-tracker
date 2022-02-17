@@ -1,6 +1,6 @@
 from distutils.log import debug
 from flask import Flask, render_template,request
-
+import sqlite3
 app = Flask(__name__)
 
 @app.route("/")
@@ -87,9 +87,11 @@ def staff():
 def staff_profilepage():
     return render_template("profile page.html")
 
-
-@app.route("/admin page")
+#########################################################
+@app.route("/admin page",methods=['GET','POST'])
 def admin():
+    name=request.form['uname']
+    print(name)
     return render_template('adminlogin.html')
 
 
