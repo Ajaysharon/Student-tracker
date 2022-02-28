@@ -22,7 +22,7 @@ def student():
         cursor.execute(query)
         result = cursor.fetchall()
 
-        if len(result)==0:
+        if len(result)!=0:
             print("sorry,Incorrect details")
         else:
             return render_template("Reg.html")
@@ -108,7 +108,7 @@ def staff():
         cursor.execute(query)
         result = cursor.fetchall()
 
-        if len(result)==0:
+        if len(result)!=0:
             print("sorry,Incorrect details")
         else:
             return render_template("profile page.html")
@@ -138,7 +138,7 @@ def adminportal():
         cursor.execute(query)
         result = cursor.fetchall()
 
-        if len(result)==0:
+        if len(result)!=0:
             print("sorry,Incorrect details")
         else:
             return render_template("admin portal.html")

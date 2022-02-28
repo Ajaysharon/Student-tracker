@@ -11,7 +11,7 @@ def execute_query(sql_query):
         db.commit()
     return result
 
-sql_query="""SELECT * FROM teacher_login"""
+sql_query="""SELECT * FROM admin"""
 RESULT=execute_query(sql_query)
 print(RESULT.fetchall())
 
